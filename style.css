@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('Memory.jpg') no-repeat center center/cover;
+}
+
+.board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.board {
+    display: grid;
+    gap: 1rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.card .card-front,
+.card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transition: transform 0.6s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card .card-front {
+    background-color: #2a2a2a;
+    transform: rotateY(0deg);
+}
+
+.card .card-back {
+    background: linear-gradient(145deg, #1e3c72, #2a5298);
+    transform: rotateY(180deg);
+    color: #fff;
+}
+
+.card.flipped .card-front {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(360deg);
+}
+
+.controls {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.controls button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #1e3c72;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.controls button:hover {
+    background: #2a5298;
+}
+
+.stats {
+    margin-top: 1rem;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.win {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    display: none; /* Initially hidden */
+}
+
+.win .highlight {
+    color: #ff77ff;
+    font-weight: bold;
+}
